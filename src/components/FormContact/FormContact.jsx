@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'store/contacts/selectors';
-import { addContacts } from 'store/contacts/reducer';
-import { nanoid } from 'nanoid';
+import { getContacts } from '../../store/selector';
 import {
   FormContainer,
   FormEl,
@@ -10,6 +8,7 @@ import {
   FormInput,
   FormButton,
 } from './FormContact.styled';
+import { addContacts } from 'store/contacts/operations';
 
 export const FormContact = () => {
   const [name, setName] = useState('');
@@ -27,7 +26,7 @@ export const FormContact = () => {
       alert(`${event.name} is already in contacts.`);
       return;
     }
-    dispatch(addContacts({ id: nanoid(), name, number }));
+    dispatch(addContacts({  name, number }));
     reset();
   };
 

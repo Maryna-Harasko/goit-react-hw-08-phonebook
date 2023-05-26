@@ -1,11 +1,11 @@
 import React from "react";
 import { FilterContainer, FilterLabel, FilterInput } from "./Filter.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { selectFilter } from "store/filter/selector";
+import { getFilter } from '../../store/selector';
 import { filterContact } from "store/filter/reducer";
 
 export const Filter = () => {
-  const dataFilter = useSelector(selectFilter);
+  const dataFilter = useSelector(getFilter);
   const dispatch = useDispatch();
 
   return(
