@@ -1,32 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { FormContainer, FormEl, FormLabel, FormInput, FormButton,  } from "components/FormContact/FormContact.styled";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../store/auth/authOperations";
 
 export const LoginForm = () =>{
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'email':
+        return setEmail(value);
+      case 'password':
+        return setPassword(value);
+      default:
+        return;
+    }
+  };
 
   const handleSubmitForm = (e) =>{
     e.preventDefault()
-    const form = e.currentTarget;
-    
-    form.reset();
+    dispatch(logIn({email, password}));
+    setEmail('');
+    setPassword('');
   }
 
   return(
     <FormContainer>
-    <FormEl onSubmit={handleSubmitForm}>
+    <FormEl onSubmit={handleSubmitForm} autoComplete="off">
       <FormLabel>
-        Email{' '}
+        Email{''}
         <FormInput
-          type="text"
-          name="name"
+          type="email"
+          name="email"
           placeholder="Please enter your email"
+          value={email}
+          onChange={handleChange}
         />
       </FormLabel>
       <FormLabel>
-        Password{' '}
+        Password{''}
         <FormInput
           type="password"
           name="password"
           placeholder="Please enter your password"
+          value={password}
+          onChange={handleChange}
         />
       </FormLabel>
       <FormButton type="submit">Log In</FormButton>
