@@ -4,8 +4,17 @@ import { Login } from "page/Login/Login";
 import { Register } from "page/Register/Register";
 import { Contacts } from "page/Contacts/Contacts";
 import { Layout } from "./Layout/Layout";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchCurrentUser } from "store/auth/authOperations";
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(fetchCurrentUser())
+  },[dispatch])
+
   return (
     <>
     <Routes>
