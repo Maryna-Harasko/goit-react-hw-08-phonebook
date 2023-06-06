@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { fetchContacts } from 'store/contacts/operations';
 import { getError, getIsLoading } from '../../store/selector';
 
-export const Contacts = () => {
+const Contacts = () => {
 
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
@@ -28,3 +28,5 @@ export const Contacts = () => {
     </Container>
   );
 };
+
+export default Contacts;

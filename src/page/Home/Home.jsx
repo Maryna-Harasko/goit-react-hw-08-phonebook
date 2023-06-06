@@ -1,5 +1,12 @@
-export const Home = () =>{
+import React from "react"
+import { Container, TitleOne } from "./Home.styled";
+
+const Home = () =>{
   return(
-    <h1>HOME</h1>
+    <Container>
+      <TitleOne>Welcome to your <br/> own phone book!</TitleOne>
+    </Container>
   )
 }
+
+export default Home;

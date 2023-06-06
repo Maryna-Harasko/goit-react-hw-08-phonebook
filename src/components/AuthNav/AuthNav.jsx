@@ -1,13 +1,13 @@
+import { NavList, PageLink } from "components/Layout/Layout.styled"
 import React from "react"
-import { NavLink } from "react-router-dom"
 
 export const AuthNav = () =>{
   return(
     <>
-    <ul>
-      <NavLink to='/login'>Login</NavLink>
-      <NavLink to='/register'>Register</NavLink>
-    </ul>
+    <NavList>
+      <PageLink to='/login'>Login</PageLink>
+      <PageLink to='/register'>Register</PageLink>
+    </NavList>
     </>
   )
 }

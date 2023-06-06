@@ -1,31 +1,32 @@
 import { AuthNav } from "components/AuthNav/AuthNav"
 import { Suspense } from "react"
-import { NavLink, Outlet } from "react-router-dom"
+import {  Outlet } from "react-router-dom"
 import { UserMenu } from "components/UserMenu/UserMenu"
 import { useSelector } from "react-redux"
 import { authSelector } from "store/auth/authSelect"
+import { Header, Nav, PageLink, NavList } from "./Layout.styled"
 
 
 export const Layout = () => {
 const isLoggedIn = useSelector(authSelector.getIsLoggedIn)
-console.log(isLoggedIn)
+
   return (
     <>
-      <header>
-        <div>
-          <nav>
-            <ul>
+      <Header>
+          <Nav>
+            <NavList>
               <li>
-                <NavLink to='/'>Home</NavLink>
+                <PageLink to='/'>Home</PageLink>
               </li>
-              <li>
-                <NavLink to='/contacts'>Contacts</NavLink>
-              </li>
+              {isLoggedIn && (
+                   <li>
+                   <PageLink to='/contacts'>Contacts</PageLink>
+                 </li>
+              )}
+            </NavList>
               {isLoggedIn ? <UserMenu/> : <AuthNav/> }
-            </ul>
-          </nav>
-        </div>
-      </header>
+          </Nav>
+      </Header>
       <main>
         <section>
           <Suspense>

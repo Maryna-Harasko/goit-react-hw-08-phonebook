@@ -1,12 +1,14 @@
 import { LoginForm } from '../../components/LogInForm/LoginForm'
-import { TitleOne } from 'page/Contacts/Contacts.styled'
+import { TitleOne, Container } from 'page/Contacts/Contacts.styled'
 import React from "react"
 
-export const Login = () =>{
+const Login = () =>{
   return(
-    <div>
+    <Container>
       <TitleOne>Log in</TitleOne>
       <LoginForm/>
-    </div>
+    </Container>
   )
 }
+
+export default Login;

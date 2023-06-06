@@ -7,9 +7,31 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh; 
+  color: #0ea3de;
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: linear-gradient(
+      rgba(234, 234, 234, 0.453),
+      rgba(234, 234, 234, 0.5)
+    ),
+    url('../public/top-view-blue-monday-concept-composition-with-telephone.jpg');
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
