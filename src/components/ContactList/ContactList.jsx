@@ -6,7 +6,7 @@ import { getFilteredContacts } from "../../store/selector";
 
 export const ContactList = ( ) => {
   const filteredContacts = useSelector(getFilteredContacts);
- console.log(filteredContacts)
+
   return (
     <ContactsList>
       {filteredContacts.map((contact) => (

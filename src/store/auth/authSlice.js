@@ -11,6 +11,7 @@ const initialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {},
   extraReducers:(builder) => {
     builder
       .addCase(register.fulfilled, (state, action) => {
@@ -27,6 +28,9 @@ export const authSlice = createSlice({
         state.user = {name: null, email: null}
         state.token = null;
         state.isLoggedIn = false;
+      })
+      .addCase(logOut.rejected, (state, action) => {
+        return state;
       })
       .addCase(fetchCurrentUser.pending, state => {
         state.isFetchingCurrent = true;
